@@ -21,17 +21,16 @@ def read_stacks(lines: str) -> str:
         for i in indexes
     ]
 
-def part_1(lines: list[str]) -> int:
+def part_1(lines: list[str]) -> str:
     stacks = read_stacks(lines)
     for line in lines:
         amount, start, end = map(int, re.findall(r'\s(\d+)', line))
         start, end = map(lambda v: v - 1, (start, end))
         for _ in range(amount):
             stacks[end].insert(0, stacks[start].pop(0))
-    
     return ''.join(stack[0] for stack in stacks)
 
-def part_2(lines: list[str]) -> int:
+def part_2(lines: list[str]) -> str:
     stacks = read_stacks(lines)
     for line in lines:
         amount, start, end = map(int, re.findall(r'\s(\d+)', line))
