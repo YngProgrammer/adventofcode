@@ -10,11 +10,6 @@ def part_1(f) -> int:
 
 def part_2(f) -> int:
     datastream, i = f.read(), 0
-    while i + 4 < len(datastream):
-        marker = set(datastream[i:i+4])
-        if len(marker) == 4:
-            break
-        i += 1
     while i + 14 < len(datastream):
         marker = set(datastream[i:i+14])
         if len(marker) == 14:
